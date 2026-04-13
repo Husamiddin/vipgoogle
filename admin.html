@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+</head>
+<body>
+
+<h1>Admin Panel 🔥</h1>
+
+<button onclick="makeVip()">Userni VIP qilish</button>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, doc, updateDoc } 
+from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getDocs, collection } 
+from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const listDiv = document.createElement("div");
+document.body.appendChild(listDiv);
+
+const snapshot = await getDocs(collection(db, "users"));
+
+snapshot.forEach(docu => {
+  const data = docu.data();
+  listDiv.innerHTML += `
+    <div style="margin:10px;padding:10px;border:1px solid #ccc;">
+      Email: ${data.email} <br>
+      VIP: ${data.vip}
+    </div>
+  `;
+});
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDl8F0lcjv94ua8YpNBU3vW-bz_tB9rrbo",
+  authDomain: "vip-c3636.firebaseapp.com",
+  projectId: "vip-c3636",
+  storageBucket: "vip-c3636.firebasestorage.app",
+  messagingSenderId: "651275250957",
+  appId: "1:651275250957:web:6d085b643b4ddd33021444"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.makeVip = async function(){
+  const uid = prompt("User UID kiriting:");
+
+  await updateDoc(doc(db, "users", uid), {
+    vip: true
+  });
+
+  alert("User VIP bo‘ldi 🔥");
+};
+</script>
+
+</body>
+</html>

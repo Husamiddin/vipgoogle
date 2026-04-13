@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Kirish</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+
+
+
+
+
+<div class="center">
+  <div class="card">
+    <h2>Kirish</h2>
+
+    <input id="email" placeholder="Email">
+    <button id="sendCodeBtn" class="btn">Davom eting!</button>
+
+    <input id="codeInput" placeholder="Kodni kiriting" style="display:none">
+    <button id="verifyBtn" class="btn" style="display:none">Tekshirish</button>
+
+    <div id="nameBox" style="display:none">
+      <input id="firstName" placeholder="Ism">
+      <input id="lastName" placeholder="Familiya">
+      <button id="continueBtn" class="btn">Davom etish</button>
+    </div>
+
+    
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
